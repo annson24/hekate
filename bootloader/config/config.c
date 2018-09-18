@@ -57,9 +57,9 @@ int create_config_entry()
 
 	LIST_INIT(ini_sections);
 
-	if (ini_parse(&ini_sections, "bootloader/hekate_ipl.ini", false))
+	if (ini_parse(&ini_sections, "bootloader/annson24.ini", false))
 	{
-		if (f_open(&fp, "bootloader/hekate_ipl.ini", FA_WRITE | FA_CREATE_ALWAYS) != FR_OK)
+		if (f_open(&fp, "bootloader/annson24.ini", FA_WRITE | FA_CREATE_ALWAYS) != FR_OK)
 			return 0;
 		// Add config entry.
 		f_puts("[config]\nautoboot=", &fp);
@@ -213,7 +213,7 @@ void _config_autoboot_list()
 		}
 		else
 		{
-			EPRINTF("Could not open 'bootloader/hekate_ipl.ini'.\nMake sure it exists in SD Card!.");
+			EPRINTF("Could not open 'bootloader/annson24.ini'.\nMake sure it exists in SD Card!.");
 			goto out;
 		}
 	}
@@ -252,7 +252,7 @@ void config_autoboot()
 
 	if (sd_mount())
 	{
-		if (ini_parse(&ini_sections, "bootloader/hekate_ipl.ini", false))
+		if (ini_parse(&ini_sections, "bootloader/annson24.ini", false))
 		{
 			// Build configuration menu.
 			ments[0].type = MENT_BACK;
@@ -335,7 +335,7 @@ void config_autoboot()
 		}
 		else
 		{
-			EPRINTF("Could not open 'bootloader/hekate_ipl.ini'.\nMake sure it exists in SD Card!.");
+			EPRINTF("Could not open 'bootloader/annson24.ini'.\nMake sure it exists in SD Card!.");
 			goto out;
 		}
 	}
